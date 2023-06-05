@@ -11,6 +11,7 @@ const passport = require('passport');
 const appError = require('./utils/appErrors');
 const catchAsync = require('./utils/catchAsync');
 const globalErrorHandler = require('./controllers/errorController');
+const viewController = require('./controllers/viewController');
 
 const app = express();
 
@@ -71,7 +72,7 @@ app.get(
 app.get(
   '/auth/google/callback',
   passport.authenticate('google', {
-    failureRedirect: '/login',
+    failureRedirect: '/',
     session: true,
   }),
   async (req, res, next) => {
@@ -91,7 +92,7 @@ app.get('/auth/facebook', passport.authenticate('facebook'));
 app.get(
   '/auth/facebook/callback',
   passport.authenticate('facebook', {
-    failureRedirect: '/login',
+    failureRedirect: '/',
     session: true,
   }),
   async (req, res, next) => {
@@ -117,38 +118,10 @@ function checkLoggedIn(req, res, next) {
 
 // Mounting the routers
 // Own Middleware
-app.use(
-  '/login',
-  catchAsync(async (req, res, next) => {
-    res.status(200).render('login', {
-      title: `Login`,
-    });
-  })
-);
+app.use('/', viewController.getLoginFrom);
+app.use('/my-account', checkLoggedIn, viewController.getProfilePage);
 
-app.use(
-  '/my-account',
-  checkLoggedIn,
-  catchAsync(async (req, res, next) => {
-    const user = req.session.passport.user;
-    // console.log(user);
-
-    res.status(200).render('profile', {
-      title: `My Account`,
-      user,
-    });
-  })
-);
-
-app.use(
-  '/logout',
-  catchAsync(async (req, res, next) => {
-    req.logout(err => {
-      if (err) return next(err);
-    });
-    res.redirect('/login');
-  })
-);
+app.use('/logout', viewController.logoutUser);
 
 app.all('*', (req, res, next) => {
   next(new appError(`Cannot find the ${req.originalUrl} on this server!!`, 404));
