@@ -7,6 +7,7 @@
   "license": "ISC",
   "description": "",
   "scripts": {
+    "start": "node server.js",
     "start:dev": "nodemon server.js",
     "start:prod": "SET NODE_ENV=production&& nodemon server.js",
     "format": "prettier --write **/**.**"
