@@ -40,7 +40,7 @@ exports.getProfilePage = catchAsync(async (req, res, next) => {
 });
 
 exports.logoutUser = catchAsync(async (req, res, next) => {
-  req.logout(err => {
+  req.session.destroy(err => {
     if (err) return next(err);
   });
   res.redirect('/');
