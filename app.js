@@ -7,6 +7,7 @@ const morgan = require('morgan');
 const path = require('path');
 
 const passport = require('passport');
+const MongoStore = require('connect-mongo');
 
 const appError = require('./utils/appErrors');
 const globalErrorHandler = require('./controllers/errorController');
@@ -46,13 +47,22 @@ if (process.env.NODE_ENV === 'development') {
 
 //////////////////////////////////////////////////////
 // Google Login
-require('./controllers/googleOAuth');
+require('./controllers/googleAuth');
+
+const DB = process.env.DATABASE.replace('<PASSWORD>', process.env.DATABASE_PASSWORD);
 
 app.use(
   session({
     secret: process.env.SESSION_SECRET_KEY,
     resave: false,
     saveUninitialized: true,
+    cookie: {
+      maxAge: 24 * 3600 * 1000,
+    },
+    store: MongoStore.create({
+      mongoUrl: `${DB}`,
+      collectionName: 'sessions',
+    }),
   })
 );
 
@@ -94,7 +104,7 @@ app.get(
   }),
   async (req, res, next) => {
     console.log('Callback from github');
-    console.log(req.session.passport.user);
+    // console.log(req.session.passport.user);
     res.redirect('/my-account');
   }
 );
@@ -102,7 +112,7 @@ app.get(
 
 //////////////////////////////////////////////////////
 // Linkedin Login
-require('./controllers/linkedin');
+require('./controllers/linkedinAuth');
 
 app.get('/auth/linkedin', passport.authenticate('linkedin'));
 
@@ -114,7 +124,7 @@ app.get(
   }),
   async (req, res, next) => {
     console.log('Callback from linkedin');
-    console.log(req.session.passport.user);
+    // console.log(req.session.passport.user);
     res.redirect('/my-account');
   }
 );
