@@ -16,13 +16,31 @@ html {
   overflow-x: hidden;
 }
 
+@media only screen and (max-width: 75em) {
+  html {
+    font-size: 56.25%;
+  }
+}
+
+@media only screen and (max-width: 56.25em) {
+  html {
+    font-size: 50%;
+  }
+}
+
+@media only screen and (max-width: 37.5em) {
+  html {
+    font-size: 43.75%;
+  }
+}
+
 body {
   background-color: #080710;
 }
 
 .background {
-  width: 43rem;
   height: 52rem;
+  width: 40rem;
   position: absolute;
   transform: translate(-50%, -50%);
   left: 50%;
@@ -44,7 +62,7 @@ body {
 
 .shape:last-child {
   background: linear-gradient(to right, #ff512f, #f09819);
-  right: -3rem;
+  right: -8rem;
   bottom: -8rem;
 }
 
@@ -83,7 +101,6 @@ form * {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: auto;
 }
 
 .btn {
@@ -111,6 +128,55 @@ form * {
 .btn__link:visited {
   text-decoration: none;
   font-size: 1.4rem;
+}
+
+@media only screen and (max-width: 37.5em) {
+  .background {
+    height: 45.5rem;
+    width: 35rem;
+  }
+
+  .background .shape {
+    height: 13rem;
+    width: 13rem;
+  }
+
+  .shape:first-child {
+    left: -5rem;
+    top: -5rem;
+  }
+
+  .shape:last-child {
+    right: -5rem;
+    bottom: -5rem;
+  }
+
+  form {
+    height: 45.5rem;
+    width: 35rem;
+  }
+
+  .heading {
+    font-size: 2.4rem;
+  }
+
+  .social {
+    margin: 3.5rem auto;
+    gap: 2.5rem;
+  }
+
+  .btn {
+    width: 20rem;
+  }
+
+  .social i {
+    font-size: 1.5rem;
+  }
+
+  .btn__link:link,
+  .btn__link:visited {
+    font-size: 1.2rem;
+  }
 }
 
 /** Profile Page **/
@@ -149,4 +215,24 @@ form * {
   transform: translate(-50%, -50%);
   margin-top: -11rem;
   width: 15rem;
+}
+
+@media only screen and (max-width: 37.5em) {
+  .profile__image {
+    height: 8rem;
+    width: 8rem;
+  }
+
+  .profile__id {
+    font-size: 0.9rem;
+  }
+
+  .profile--details {
+    font-size: 1.2rem;
+  }
+
+  .btn--logout {
+    margin-top: -10rem;
+    width: 12rem;
+  }
 }
