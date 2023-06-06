@@ -59,14 +59,6 @@ const sendErrorProd = (err, req, res) => {
   });
 };
 
-const handleJWTError = () => {
-  return new appError(`Invalid Token. Please Login again...`, 401);
-};
-
-const handleJWTExpiredError = () => {
-  return new appError(`Token has been Please Login again...`, 401);
-};
-
 module.exports = (err, req, res, next) => {
   err.statusCode = err.statusCode || 500;
   err.status = err.status || 'error';
@@ -79,9 +71,6 @@ module.exports = (err, req, res, next) => {
     let error = { ...JSON.parse(JSON.stringify(err)) };
     error.message = err.message;
     console.log(error);
-
-    if (error.name === 'JsonWebTokenError') error = handleJWTError();
-    if (error.name === 'TokenExpiredError') error = handleJWTExpiredError();
 
     sendErrorProd(error, req, res);
   }
