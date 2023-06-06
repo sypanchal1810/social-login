@@ -9,7 +9,7 @@ const path = require('path');
 const passport = require('passport');
 
 const appError = require('./utils/appErrors');
-const catchAsync = require('./utils/catchAsync');
+// const catchAsync = require('./utils/catchAsync');
 const globalErrorHandler = require('./controllers/errorController');
 const viewController = require('./controllers/viewController');
 
