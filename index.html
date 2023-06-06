@@ -11,6 +11,8 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap"
       rel="stylesheet"
     />
+
+    <link rel="stylesheet" href="./public/css/style.css" />
   </head>
   <body>
     <div class="background">
@@ -19,26 +21,162 @@
     </div>
 
     <form>
-      <h4 class="heading">
-        Login With <br />
-        Social Media Profile
-      </h4>
-      <div class="social">
-        <div class="btn go">
-          <i class="fab fa-google"></i>
-          <a href="auth/google" class="btn__link btn--google">Continue with Google</a>
+      <!--  -->
+      <h4 class="heading">Logged In with Google</h4>
+
+      <div class="profile">
+        <div class="profile--header">
+          <div class="profile__photo">
+            <img
+              class="profile__image"
+              src="https://lh3.googleusercontent.com/a/AAcHTtdDaAjn7F5sLPKQjDFOK-maxHLd3TjA5kppIOPn4g=s96-c"
+              alt="Saurabh Panchal"
+            />
+          </div>
+          <div class="profile__id">google-id: 115064453586206259801</div>
         </div>
 
-        <div class="btn fb">
-          <i class="fab fa-facebook"></i>
-          <a href="auth/facebook" class="btn__link btn--google"> Continue with Facebook</a>
-        </div>
-
-        <div class="btn li">
-          <i class="fab fa-linkedin"></i>
-          <a href="auth/linkedin" class="btn__link btn--google"> Continue with LinkedIn</a>
+        <div class="profile--details">
+          <div class="profile__name">Name: Saurabh Panchal</div>
+          <div class="profile__email">Email: saurabh.panchal1018@gmail.com</div>
         </div>
       </div>
+
+      <div class="btn btn--logout">
+        <a href="/logout" class="btn__link">Logout</a>
+      </div>
+      <!--  -->
     </form>
   </body>
 </html>
+
+<!-- 
+  /*
+
+{
+  id: '77922353',
+  nodeId: 'MDQ6VXNlcjc3OTIyMzUz',
+  displayName: 'Saurabh Panchal',
+  username: 'sypanchal1810',
+  profileUrl: 'https://github.com/sypanchal1810',
+  photos: [ { value: 'https://avatars.githubusercontent.com/u/77922353?v=4' } ],
+  provider: 'github',
+  _raw: '{"login":"sypanchal1810","id":77922353,"node_id":"MDQ6VXNlcjc3OTIyMzUz","avatar_url":"https://avatars.githubusercontent.com/u/77922353?v=4","gravatar_id":"","url":"https://api.github.com/users/sypanchal1810","html_url":"https://github.com/sypanchal1810","followers_url":"https://api.github.com/users/sypanchal1810/followers","following_url":"https://api.github.com/users/sypanchal1810/following{/other_user}","gists_url":"https://api.github.com/users/sypanchal1810/gists{/gist_id}","starred_url":"https://api.github.com/users/sypanchal1810/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/sypanchal1810/subscriptions","organizations_url":"https://api.github.com/users/sypanchal1810/orgs","repos_url":"https://api.github.com/users/sypanchal1810/repos","events_url":"https://api.github.com/users/sypanchal1810/events{/privacy}","received_events_url":"https://api.github.com/users/sypanchal1810/received_events","type":"User","site_admin":false,"name":"Saurabh Panchal","company":null,"blog":"","location":null,"email":null,"hireable":null,"bio":"|| Think || Code || Innovate || Improve ||","twitter_username":null,"public_repos":7,"public_gists":0,"followers":12,"following":22,"created_at":"2021-01-24T11:57:51Z","updated_at":"2023-05-13T12:01:47Z"}',
+  _json: {
+    login: 'sypanchal1810',
+    id: 77922353,
+    node_id: 'MDQ6VXNlcjc3OTIyMzUz',
+    avatar_url: 'https://avatars.githubusercontent.com/u/77922353?v=4',
+    gravatar_id: '',
+    url: 'https://api.github.com/users/sypanchal1810',
+    html_url: 'https://github.com/sypanchal1810',
+    followers_url: 'https://api.github.com/users/sypanchal1810/followers',
+    following_url: 'https://api.github.com/users/sypanchal1810/following{/other_user}',
+    gists_url: 'https://api.github.com/users/sypanchal1810/gists{/gist_id}',
+    starred_url: 'https://api.github.com/users/sypanchal1810/starred{/owner}{/repo}',
+    subscriptions_url: 'https://api.github.com/users/sypanchal1810/subscriptions',
+    organizations_url: 'https://api.github.com/users/sypanchal1810/orgs',
+    repos_url: 'https://api.github.com/users/sypanchal1810/repos',
+    events_url: 'https://api.github.com/users/sypanchal1810/events{/privacy}',
+    received_events_url: 'https://api.github.com/users/sypanchal1810/received_events',
+    type: 'User',
+    site_admin: false,
+    name: 'Saurabh Panchal',
+    company: null,
+    blog: '',
+    location: null,
+    email: null,
+    hireable: null,
+    bio: '|| Think || Code || Innovate || Improve ||',
+    twitter_username: null,
+    public_repos: 7,
+    public_gists: 0,
+    followers: 12,
+    following: 22,
+    created_at: '2021-01-24T11:57:51Z',
+    updated_at: '2023-05-13T12:01:47Z'
+  }
+}
+
+*/
+
+ -->
+
+<!-- 
+  /*
+ 
+User Profile {
+  id: '115064453586206259801',
+  displayName: 'Saurabh Panchal',
+  name: { familyName: 'Panchal', givenName: 'Saurabh' },
+  emails: [ { value: 'saurabh.panchal1018@gmail.com', verified: true } ],
+  photos: [
+    {
+      value: 'https://lh3.googleusercontent.com/a/AAcHTtdDaAjn7F5sLPKQjDFOK-maxHLd3TjA5kppIOPn4g=s96-c'
+    }
+  ],
+  provider: 'google',
+  _raw: '{\n' +
+    '  "sub": "115064453586206259801",\n' +
+    '  "name": "Saurabh Panchal",\n' +
+    '  "given_name": "Saurabh",\n' +
+    '  "family_name": "Panchal",\n' +
+    '  "picture": "https://lh3.googleusercontent.com/a/AAcHTtdDaAjn7F5sLPKQjDFOK-maxHLd3TjA5kppIOPn4g\\u003ds96-c",\n' +
+    '  "email": "saurabh.panchal1018@gmail.com",\n' +
+    '  "email_verified": true,\n' +
+    '  "locale": "en-GB"\n' +
+    '}',
+  _json: {
+    sub: '115064453586206259801',
+    name: 'Saurabh Panchal',
+    given_name: 'Saurabh',
+    family_name: 'Panchal',
+    picture: 'https://lh3.googleusercontent.com/a/AAcHTtdDaAjn7F5sLPKQjDFOK-maxHLd3TjA5kppIOPn4g=s96-c',
+    email: 'saurabh.panchal1018@gmail.com',
+    email_verified: true,
+    locale: 'en-GB'
+  }
+} 
+
+*/
+
+  -->
+
+<!-- 
+    /*  
+{
+  provider: 'linkedin',
+  id: '9C5WxD8bB1',
+  name: { givenName: 'Saurabh', familyName: 'Panchal' },
+  displayName: 'Saurabh Panchal',
+  photos: [
+    {
+      value: 'https://media.licdn.com/dms/image/D4D03AQHAHaTwFjWFkg/profile-displayphoto-shrink_100_100/0/1676122740984?e=1691625600&v=beta&t=bdmYJgDp-7hP6eqVUUQ2JOGIrhF1IzlktXxDTEaB9ac'
+    },
+    {
+      value: 'https://media.licdn.com/dms/image/D4D03AQHAHaTwFjWFkg/profile-displayphoto-shrink_200_200/0/1676122740984?e=1691625600&v=beta&t=zgBaSvhbIJjDPt5J8H57GSFSY9YAyIcKxaxNsy1NNGk'
+    },
+    {
+      value: 'https://media.licdn.com/dms/image/D4D03AQHAHaTwFjWFkg/profile-displayphoto-shrink_400_400/0/1676122740984?e=1691625600&v=beta&t=KROBiAyDpgRGTdc6yYPwainQcO0eEMmYx2oEzhuJOZM'
+    },
+    {
+      value: 'https://media.licdn.com/dms/image/D4D03AQHAHaTwFjWFkg/profile-displayphoto-shrink_800_800/0/1676122740984?e=1691625600&v=beta&t=oa6yduTJXdfVViDcq3EkL5-1liKnrrCdB8zS2DxJBF4'
+    }
+  ],
+  
+  
+  _raw: '{"firstName":{"localized":{"en_US":"Saurabh"},"preferredLocale":{"country":"US","language":"en"}},"lastName":{"localized":{"en_US":"Panchal"},"preferredLocale":{"country":"US","language":"en"}},"profilePicture":{"displayImage":"urn:li:digitalmediaAsset:D4D03AQHAHaTwFjWFkg","displayImage~":{"paging":{"count":10,"start":0,"links":[]},"elements":[{"artifact":"urn:li:digitalmediaMediaArtifact:(urn:li:digitalmediaAsset:D4D03AQHAHaTwFjWFkg,urn:li:digitalmediaMediaArtifactClass:profile-displayphoto-shrink_100_100)","authorizationMethod":"PUBLIC","data":{"com.linkedin.digitalmedia.mediaartifact.StillImage":{"mediaType":"image/jpeg","rawCodecSpec":{"name":"jpeg","type":"image"},"displaySize":{"width":100.0,"uom":"PX","height":100.0},"storageSize":{"width":100,"height":100},"storageAspectRatio":{"widthAspect":1.0,"heightAspect":1.0,"formatted":"1.00:1.00"},"displayAspectRatio":{"widthAspect":1.0,"heightAspect":1.0,"formatted":"1.00:1.00"}}},"identifiers":[{"identifier":"https://media.licdn.com/dms/image/D4D03AQHAHaTwFjWFkg/profile-displayphoto-shrink_100_100/0/1676122740984?e=1691625600&v=beta&t=bdmYJgDp-7hP6eqVUUQ2JOGIrhF1IzlktXxDTEaB9ac","index":0,"mediaType":"image/jpeg","file":"urn:li:digitalmediaFile:(urn:li:digitalmediaAsset:D4D03AQHAHaTwFjWFkg,urn:li:digitalmediaArtifactClass:profile-displayphoto-shrink_100_100,0)","identifierType":"EXTERNAL_URL","identifierExpiresInSeconds":1691625600}]},{"artifact":"urn:li:digitalmediaMediaArtifact:(urn:li:digitalmediaAsset:D4D03AQHAHaTwFjWFkg,urn:li:digitalmediaMediaArtifactClass:profile-displayphoto-shrink_200_200)","authorizationMethod":"PUBLIC","data":{"com.linkedin.digitalmedia.mediaartifact.StillImage":{"mediaType":"image/jpeg","rawCodecSpec":{"name":"jpeg","type":"image"},"displaySize":{"width":200.0,"uom":"PX","height":200.0},"storageSize":{"width":200,"height":200},"storageAspectRatio":{"widthAspect":1.0,"heightAspect":1.0,"formatted":"1.00:1.00"},"displayAspectRatio":{"widthAspect":1.0,"heightAspect":1.0,"formatted":"1.00:1.00"}}},"identifiers":[{"identifier":"https://media.licdn.com/dms/image/D4D03AQHAHaTwFjWFkg/profile-displayphoto-shrink_200_200/0/1676122740984?e=1691625600&v=beta&t=zgBaSvhbIJjDPt5J8H57GSFSY9YAyIcKxaxNsy1NNGk","index":0,"mediaType":"image/jpeg","file":"urn:li:digitalmediaFile:(urn:li:digitalmediaAsset:D4D03AQHAHaTwFjWFkg,urn:li:digitalmediaArtifactClass:profile-displayphoto-shrink_200_200,0)","identifierType":"EXTERNAL_URL","identifierExpiresInSeconds":1691625600}]},{"artifact":"urn:li:digitalmediaMediaArtifact:(urn:li:digitalmediaAsset:D4D03AQHAHaTwFjWFkg,urn:li:digitalmediaMediaArtifactClass:profile-displayphoto-shrink_400_400)","authorizationMethod":"PUBLIC","data":{"com.linkedin.digitalmedia.mediaartifact.StillImage":{"mediaType":"image/jpeg","rawCodecSpec":{"name":"jpeg","type":"image"},"displaySize":{"width":400.0,"uom":"PX","height":400.0},"storageSize":{"width":400,"height":400},"storageAspectRatio":{"widthAspect":1.0,"heightAspect":1.0,"formatted":"1.00:1.00"},"displayAspectRatio":{"widthAspect":1.0,"heightAspect":1.0,"formatted":"1.00:1.00"}}},"identifiers":[{"identifier":"https://media.licdn.com/dms/image/D4D03AQHAHaTwFjWFkg/profile-displayphoto-shrink_400_400/0/1676122740984?e=1691625600&v=beta&t=KROBiAyDpgRGTdc6yYPwainQcO0eEMmYx2oEzhuJOZM","index":0,"mediaType":"image/jpeg","file":"urn:li:digitalmediaFile:(urn:li:digitalmediaAsset:D4D03AQHAHaTwFjWFkg,urn:li:digitalmediaArtifactClass:profile-displayphoto-shrink_400_400,0)","identifierType":"EXTERNAL_URL","identifierExpiresInSeconds":1691625600}]},{"artifact":"urn:li:digitalmediaMediaArtifact:(urn:li:digitalmediaAsset:D4D03AQHAHaTwFjWFkg,urn:li:digitalmediaMediaArtifactClass:profile-displayphoto-shrink_800_800)","authorizationMethod":"PUBLIC","data":{"com.linkedin.digitalmedia.mediaartifact.StillImage":{"mediaType":"image/jpeg","rawCodecSpec":{"name":"jpeg","type":"image"},"displaySize":{"width":800.0,"uom":"PX","height":800.0},"storageSize":{"width":800,"height":800},"storageAspectRatio":{"widthAspect":1.0,"heightAspect":1.0,"formatted":"1.00:1.00"},"displayAspectRatio":{"widthAspect":1.0,"heightAspect":1.0,"formatted":"1.00:1.00"}}},"identifiers":[{"identifier":"https://media.licdn.com/dms/image/D4D03AQHAHaTwFjWFkg/profile-displayphoto-shrink_800_800/0/1676122740984?e=1691625600&v=beta&t=oa6yduTJXdfVViDcq3EkL5-1liKnrrCdB8zS2DxJBF4","index":0,"mediaType":"image/jpeg","file":"urn:li:digitalmediaFile:(urn:li:digitalmediaAsset:D4D03AQHAHaTwFjWFkg,urn:li:digitalmediaArtifactClass:profile-displayphoto-shrink_800_800,0)","identifierType":"EXTERNAL_URL","identifierExpiresInSeconds":1691625600}]}]}},"id":"9C5WxD8bB1"}',
+  _json: {
+    firstName: { localized: [Object], preferredLocale: [Object] },
+    lastName: { localized: [Object], preferredLocale: [Object] },
+    profilePicture: {
+      displayImage: 'urn:li:digitalmediaAsset:D4D03AQHAHaTwFjWFkg',
+      'displayImage~': [Object]
+    },
+    id: '9C5WxD8bB1'
+  }
+}
+
+*/
+
+   -->

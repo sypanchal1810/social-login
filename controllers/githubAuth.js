@@ -1,18 +1,18 @@
 const passport = require('passport');
-const { Strategy } = require('passport-facebook');
+const { Strategy } = require('passport-github2');
 
 // Passport.js for Facebook
-const facebookOptions = {
-  clientID: process.env.FACEBOOK_CLIENT_ID,
-  clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
-  callbackURL: '/auth/facebook/callback',
+const githubOptions = {
+  clientID: process.env.GITHUB_CLIENT_ID,
+  clientSecret: process.env.GITHUB_CLIENT_SECRET,
+  callbackURL: '/auth/github/callback',
 };
 const verifyCallback = async (accessToken, refreshToken, profile, done) => {
   const userProfile = profile;
   console.log(userProfile);
   return done(null, userProfile);
 };
-passport.use(new Strategy(facebookOptions, verifyCallback));
+passport.use(new Strategy(githubOptions, verifyCallback));
 
 // Save the session to the cookie
 passport.serializeUser((user, done) => {

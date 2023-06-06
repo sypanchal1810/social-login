@@ -15,7 +15,7 @@ html(lang='en')
     link(rel='apple-touch-icon', href='img/apple-touch-icon.png')
     link(rel='stylesheet', href='css/style.css')
 
-    title Get Account Info | #{ title }
+    title Get-YourInfo | #{ title }
 
   body
     .background
@@ -30,44 +30,10 @@ html(lang='en')
       .social
         .btn.go
           i.fab.fa-google
-          a.btn__link.btn--google(href='auth/google') Continue with Google
+          a.btn__link.btn--google(href='/auth/google') Continue with Google
         .btn.fb
-          i.fab.fa-facebook
-          a.btn__link.btn--google(href='auth/facebook') Continue with Facebook
+          i.fab.fa-github
+          a.btn__link.btn--google(href='/auth/github') Continue with Github
         .btn.li
           i.fab.fa-linkedin
-          a.btn__link.btn--google(href='auth/linkedin') Continue with LinkedIn
-
-//- {{! 
-//- User Profile {
-//-   id: '115064453586206259801',
-//-   displayName: 'Saurabh Panchal',
-//-   name: { familyName: 'Panchal', givenName: 'Saurabh' },
-//-   emails: [ { value: 'saurabh.panchal1018@gmail.com', verified: true } ],
-//-   photos: [
-//-     {
-//-       value: 'https://lh3.googleusercontent.com/a/AAcHTtdDaAjn7F5sLPKQjDFOK-maxHLd3TjA5kppIOPn4g=s96-c'
-//-     }
-//-   ],
-//-   provider: 'google',
-//-   _raw: '{\n' +
-//-     '  "sub": "115064453586206259801",\n' +
-//-     '  "name": "Saurabh Panchal",\n' +
-//-     '  "given_name": "Saurabh",\n' +
-//-     '  "family_name": "Panchal",\n' +
-//-     '  "picture": "https://lh3.googleusercontent.com/a/AAcHTtdDaAjn7F5sLPKQjDFOK-maxHLd3TjA5kppIOPn4g\\u003ds96-c",\n' +
-//-     '  "email": "saurabh.panchal1018@gmail.com",\n' +
-//-     '  "email_verified": true,\n' +
-//-     '  "locale": "en-GB"\n' +
-//-     '}',
-//-   _json: {
-//-     sub: '115064453586206259801',
-//-     name: 'Saurabh Panchal',
-//-     given_name: 'Saurabh',
-//-     family_name: 'Panchal',
-//-     picture: 'https://lh3.googleusercontent.com/a/AAcHTtdDaAjn7F5sLPKQjDFOK-maxHLd3TjA5kppIOPn4g=s96-c',
-//-     email: 'saurabh.panchal1018@gmail.com',
-//-     email_verified: true,
-//-     locale: 'en-GB'
-//-   }
-//- } }}
+          a.btn__link.btn--google(href='/auth/linkedin') Continue with LinkedIn

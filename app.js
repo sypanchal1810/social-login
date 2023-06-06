@@ -9,7 +9,6 @@ const path = require('path');
 const passport = require('passport');
 
 const appError = require('./utils/appErrors');
-// const catchAsync = require('./utils/catchAsync');
 const globalErrorHandler = require('./controllers/errorController');
 const viewController = require('./controllers/viewController');
 
@@ -20,18 +19,16 @@ app.enable('trust proxy');
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
 
-// Middleware
+// All Middleware
 
 // Implementing CORS
 app.use(cors());
-
 app.options('*', cors());
 
 // Serving static files
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Set security HTTP headers
-// app.use(helmet());
 app.use(
   helmet({
     contentSecurityPolicy: false,
@@ -84,27 +81,45 @@ app.get(
 //////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////
-// Facebook Login
-require('./controllers/facebook');
+// Github Login
+require('./controllers/githubAuth');
 
-app.get('/auth/facebook', passport.authenticate('facebook'));
+app.get('/auth/github', passport.authenticate('github'));
 
 app.get(
-  '/auth/facebook/callback',
-  passport.authenticate('facebook', {
+  '/auth/github/callback',
+  passport.authenticate('github', {
     failureRedirect: '/',
     session: true,
   }),
   async (req, res, next) => {
-    console.log('Callback from facebook');
-    // console.log(req.session.passport.user);
+    console.log('Callback from github');
+    console.log(req.session.passport.user);
     res.redirect('/my-account');
   }
 );
-
 //////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////
+// Linkedin Login
+require('./controllers/linkedin');
+
+app.get('/auth/linkedin', passport.authenticate('linkedin'));
+
+app.get(
+  '/auth/linkedin/callback',
+  passport.authenticate('linkedin', {
+    failureRedirect: '/',
+    session: true,
+  }),
+  async (req, res, next) => {
+    console.log('Callback from linkedin');
+    console.log(req.session.passport.user);
+    res.redirect('/my-account');
+  }
+);
+//////////////////////////////////////////////////////
+
 function checkLoggedIn(req, res, next) {
   console.log('Current user is:', req.session.passport.user.displayName);
 
@@ -117,7 +132,6 @@ function checkLoggedIn(req, res, next) {
 }
 
 // Mounting the routers
-// Own Middleware
 app.get('/', viewController.getLoginFrom);
 app.get('/my-account', checkLoggedIn, viewController.getProfilePage);
 
