@@ -118,10 +118,10 @@ function checkLoggedIn(req, res, next) {
 
 // Mounting the routers
 // Own Middleware
-app.use('/', viewController.getLoginFrom);
-app.use('/my-account', checkLoggedIn, viewController.getProfilePage);
+app.get('/', viewController.getLoginFrom);
+app.get('/my-account', checkLoggedIn, viewController.getProfilePage);
 
-app.use('/logout', viewController.logoutUser);
+app.get('/logout', viewController.logoutUser);
 
 app.all('*', (req, res, next) => {
   next(new appError(`Cannot find the ${req.originalUrl} on this server!!`, 404));
