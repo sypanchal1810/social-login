@@ -8,8 +8,7 @@ const googleOAuthOptions = {
   callbackURL: '/auth/google/callback',
 };
 const verifyCallback = async (accessToken, refreshToken, profile, done) => {
-  const userProfile = profile;
-  return done(null, userProfile);
+  return done(null, profile);
 };
 passport.use(new Strategy(googleOAuthOptions, verifyCallback));
 

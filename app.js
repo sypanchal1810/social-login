@@ -53,6 +53,7 @@ const DB = process.env.DATABASE.replace('<PASSWORD>', process.env.DATABASE_PASSW
 
 app.use(
   session({
+    name: 'session',
     secret: process.env.SESSION_SECRET_KEY,
     resave: false,
     saveUninitialized: true,

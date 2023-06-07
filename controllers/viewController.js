@@ -40,8 +40,14 @@ exports.getProfilePage = catchAsync(async (req, res, next) => {
 });
 
 exports.logoutUser = catchAsync(async (req, res, next) => {
-  req.session.destroy(err => {
-    if (err) return next(err);
+  req.session.user = null;
+
+  req.session.save(function (err) {
+    if (err) next(err);
+
+    req.session.regenerate(function (err) {
+      if (err) next(err);
+      res.redirect('/');
+    });
   });
-  res.redirect('/');
 });
