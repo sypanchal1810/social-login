@@ -183,6 +183,8 @@ seamless interaction.
    SESSION_SECRET_KEY=YOUR_UNIQUE_SECRET_KEY
    ```
 
+## Usage
+
 ### `config.env` final check:
 
 - Your `config.env` must have these following environment variable:
@@ -223,8 +225,6 @@ LINKEDIN_CLIENT_SECRET=your_client_secret
 
 That's it! You have successfully set up and integrated the social media login functionalities in the
 Get-Your_Info application. Enjoy using it! 🎉
-
-## Usage
 
 1. Start the application:
 
