@@ -8,6 +8,7 @@ const githubOptions = {
   callbackURL: '/auth/github/callback',
 };
 const verifyCallback = async (accessToken, refreshToken, profile, done) => {
+  // console.log(profile);
   return done(null, profile);
 };
 passport.use(new Strategy(githubOptions, verifyCallback));

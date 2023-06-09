@@ -6,8 +6,10 @@ const linkedinOptions = {
   clientID: process.env.LINKEDIN_CLIENT_ID,
   clientSecret: process.env.LINKEDIN_CLIENT_SECRET,
   callbackURL: '/auth/linkedin/callback',
+  scope: ['r_emailaddress', 'r_liteprofile'],
 };
 const verifyCallback = async (accessToken, refreshToken, profile, done) => {
+  // console.log(profile);
   return done(null, profile);
 };
 passport.use(new Strategy(linkedinOptions, verifyCallback));

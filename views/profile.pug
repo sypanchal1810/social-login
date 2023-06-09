@@ -31,11 +31,7 @@ html(lang='en')
           .profile__id= `${user.provider}-id: ${user.id}`
         .profile--details
           .profile__name= `Name: ${user.name}`
-          - if(user.provider === 'google')
-            .profile__email= `Email: ${user.email}`
-
-          - if(user.provider === 'github')
-            .profile__email= `Profile: ${user.profileUrl}`
+          .profile__email= `${user.provider === 'github' ? `Profile: ${user.profileUrl}` : `Email: ${user.email}`}`
 
       .btn.btn--logout
         a.btn__link(href='/logout') Logout

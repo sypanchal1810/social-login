@@ -30,6 +30,7 @@ exports.getProfilePage = catchAsync(async (req, res, next) => {
     loggedUser.provider = 'linkedin';
     loggedUser.id = user.id;
     loggedUser.name = user.displayName;
+    loggedUser.email = user.emails[0].value;
     loggedUser.photo = user.photos[2].value;
   }
 
