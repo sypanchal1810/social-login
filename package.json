@@ -2,7 +2,7 @@
   "name": "Get-YourInfo",
   "version": "1.0.0",
   "main": "app.js",
-  "author": "Saurabh Panchal",
+  "author": "sypanchal1018",
   "license": "ISC",
   "description": "Social-Media-Login Authentication App",
   "scripts": {
