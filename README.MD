@@ -155,28 +155,55 @@ seamless interaction.
 
 #### (\*\* Only for express-session storage)
 
-1. Go to the [MongoDB Cloud Services](https://www.mongodb.com/cloud) and create a new database.
+1. Go to the [MongoDB Cloud Services](https://www.mongodb.com/cloud) website and create a new
+   account if you haven't already.
 
-2. Add Username and Password and Save it somewhere
+2. Once logged in, navigate to the MongoDB Cloud Dashboard and click on "Create a New Cluster" to
+   set up a new cluster for your database.
 
-3. Now, Click on Connect and choose MongoDB Compass Option. You will get the Database connection
-   string. It will something look like this:
-   ```
-   mongodb+srv://<USERNAME>:<PASSWORD>@<mongo-url-of-database>
-   ```
-4. You have to append the following string
+3. Configure your cluster by selecting the cloud provider, region, and cluster tier that best suits
+   your needs. You can also customize additional settings like the number of replica sets and shard
+   clusters.
 
-   ```
-   <YOUR_STRING>/get-yourinfo?retryWrites=true&w=majority
-   ```
+4. Once the cluster is created and provisioned, click on "Database Access" in the left sidebar to
+   create a new database user.
 
-5. In your project directory, open the `config.env` file and add the following lines:
+5. Click on the "Add New Database User" button and provide a username and password for the database
+   user. Make sure to save these credentials in a secure location.
 
-   ```
-   DATABASE=<YOUR_STRING>/get-yourinfo?retryWrites=true&w=majority
-   DATABASE_USERNAME=<USERNAME>
-   DATABASE_PASSWORD=<PASSWORD>
-   ```
+6. Next, click on "Network Access" in the left sidebar to configure the network access settings for
+   your cluster.
+
+7. Click on the "Add IP Address" button to allow access from your current IP address or add a
+   specific IP range. You can also choose to allow access from anywhere (0.0.0.0/0).
+
+8. After configuring the network access, click on "Clusters" in the left sidebar and then click on
+   the "Connect" button for your cluster.
+
+9. Choose the "Connect Your Application" option and select the driver and version you're using for
+   your application (e.g., Node.js and the latest version).
+
+10. Copy the connection string provided. It should be something like:
+
+    ```
+    mongodb+srv://<USERNAME>:<PASSWORD>@<CLUSTER_URL>/<DATABASE_NAME>?retryWrites=true&w=majority
+    ```
+
+11. Replace `<USERNAME>` and `<PASSWORD>` with the credentials you created in step 5. Also, replace
+    `<CLUSTER_URL>` with the URL provided in the connection string, and `<DATABASE_NAME>` with the
+    name you want to give to your database (e.g., "get-yourinfo").
+
+12. In your project directory, open the `config.env` file and add the following lines:
+
+    ```
+    DATABASE=<YOUR_CONNECTION_STRING>
+    DATABASE_USERNAME=<USERNAME>
+    DATABASE_PASSWORD=<PASSWORD>
+    ```
+
+> ⚠️ **Important:** Make sure to replace `<YOUR_CONNECTION_STRING>` with the modified connection
+> string from step 11, `<USERNAME>` with the database username, and `<PASSWORD>` with the database
+> password you created.
 
 6. Also add the Session Secret Key in the `config.env` for the express-session as shown below:
    ```
@@ -196,7 +223,7 @@ seamless interaction.
 NODE_ENV=development
 PORT=7000
 
-DATABASE=<YOUR_STRING>/get-yourinfo?retryWrites=true&w=majority
+DATABASE=<YOUR_CONNECTION_STRING>
 DATABASE_USERNAME=<USERNAME>
 DATABASE_PASSWORD=<PASSWORD>
 
@@ -232,4 +259,4 @@ Get-Your_Info application. Enjoy using it! 🎉
    npm start
    ```
 
-2. Open your web browser and visit `http://localhost:7000` to access the application.
+2. Open your web browser and visit `http://127.0.0.1:7000` to access the application.
