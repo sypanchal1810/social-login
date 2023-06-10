@@ -42,10 +42,19 @@ exports.getProfilePage = catchAsync(async (req, res, next) => {
 
 exports.logoutUser = (req, res, next) => {
   req.session.user = null;
-
+  // Clear the session data
+  req.session.destroy(err => {
+    if (err) {
+      console.error('Error destroying session:', err);
+    }
+  });
+  // Clear the passport session
   req.logout(err => {
     if (err) console.log('Error', err);
   });
+  // Delete associated cookies
+  res.clearCookie('session');
   console.log('Logging Out...');
-  res.clearCookie('session', { path: '/' }).status(200).redirect('/');
+  // Redirect to home page
+  res.redirect('/');
 };
