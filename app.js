@@ -5,6 +5,7 @@ const session = require('express-session');
 const helmet = require('helmet');
 const morgan = require('morgan');
 const path = require('path');
+const cookieParser = require('cookie-parser');
 
 const passport = require('passport');
 const MongoStore = require('connect-mongo');
@@ -37,6 +38,8 @@ app.use(
   })
 );
 
+app.use(cookieParser());
+
 // Compress the size of response body for faster transmission and improved performance
 app.use(compression());
 
@@ -45,10 +48,7 @@ if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
 
-//////////////////////////////////////////////////////
-// Google Login
-require('./controllers/googleAuth');
-
+// Express Session
 const DB = process.env.DATABASE.replace('<PASSWORD>', process.env.DATABASE_PASSWORD);
 
 app.use(
@@ -58,7 +58,7 @@ app.use(
     resave: false,
     saveUninitialized: true,
     cookie: {
-      maxAge: 24 * 3600 * 1000,
+      maxAge: 24 * 60 * 60 * 1000,
     },
     store: MongoStore.create({
       mongoUrl: `${DB}`,
@@ -66,6 +66,10 @@ app.use(
     }),
   })
 );
+
+//////////////////////////////////////////////////////
+// Google Login
+require('./controllers/googleAuth');
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -144,6 +148,7 @@ function checkLoggedIn(req, res, next) {
 
 // Mounting the routers
 app.get('/', viewController.getLoginFrom);
+
 app.get('/my-account', checkLoggedIn, viewController.getProfilePage);
 
 app.get('/logout', viewController.logoutUser);

@@ -7,6 +7,7 @@ const linkedinOptions = {
   clientSecret: process.env.LINKEDIN_CLIENT_SECRET,
   callbackURL: '/auth/linkedin/callback',
   scope: ['r_emailaddress', 'r_liteprofile'],
+  state: true,
 };
 const verifyCallback = async (accessToken, refreshToken, profile, done) => {
   // console.log(profile);

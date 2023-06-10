@@ -40,15 +40,12 @@ exports.getProfilePage = catchAsync(async (req, res, next) => {
   });
 });
 
-exports.logoutUser = catchAsync(async (req, res, next) => {
+exports.logoutUser = (req, res, next) => {
   req.session.user = null;
 
-  req.session.save(function (err) {
-    if (err) next(err);
-
-    req.session.regenerate(function (err) {
-      if (err) next(err);
-      res.redirect('/');
-    });
+  req.logout(err => {
+    if (err) console.log('Error', err);
   });
-});
+  console.log('Logging Out...');
+  res.clearCookie('session', { path: '/' }).status(200).redirect('/');
+};
